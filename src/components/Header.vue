@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="contenedor">
-            <p class="logo">AprendeYa!</p>
+            <p class="logo"><a href="/">AprendeYa!</a></p>
             <nav>
                 <router-link v-if="$route.path === '/' || $route.path === '/registro'" to="/login">Iniciar
                     Sesión</router-link>
@@ -72,6 +72,10 @@ header a {
 }
 
 header a:hover {
+    color: blueviolet;
+}
+
+header p a{
     color: blueviolet;
 }
 
