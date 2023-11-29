@@ -1,0 +1,93 @@
+h1 {font-size: 3.5em;}
+h2 {font-size: 2.7em;}
+p {font-size: 1.25em;}
+
+
+#introduccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 90vh;
+    background-color: rgb(151, 151, 151);
+    
+}
+
+#introduccion .contenedor
+{
+    display: flex;
+    text-align: center;
+    padding: 100px 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+#introduccion .texto {
+    width: 100%;
+    max-width: 600px;
+    padding: 0px 30px;
+}
+
+#introduccion .texto h1{
+    margin-top: 0;
+}
+
+span{
+    color: blueviolet;
+}
+
+#introduccion .content-img1{
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.3)), url(../assets/imagenes/desarrolloWeb.png);
+            background-size: cover;
+            background-position: center center;
+            height: 500px;
+            width: 400px;
+}
+#introduccion .content-img2{
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)), url(../assets/imagenes/marketing.jpg);
+            background-size: cover;
+            background-position: center center;
+            height: 480px;
+            width: 400px;
+}
+#introduccion .content-img3{
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)), url(../assets/imagenes/phyton.png);
+            background-size: cover;
+            background-position: center center;
+            height: 450px;
+            width: 600px;
+}
+#introduccion .content-img4{
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)), url(../assets/imagenes/diseñografico.jpg);
+            background-size: cover;
+            background-position: center center;
+            height: 450px;
+            width: 400px;
+}
+#introduccion .content-img5{
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)), url(../assets/imagenes/appweb.jpg);
+            background-size: cover;
+            background-position: center center;
+            height: 550px;
+            width: 400px;
+}
+#introduccion .content-img6{
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)), url(../assets/imagenes/gestionproyectos.jpg);
+            background-size: cover;
+            background-position: center center;
+            height: 450px;
+            width: 600px;
+}
