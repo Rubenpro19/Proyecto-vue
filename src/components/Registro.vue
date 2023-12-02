@@ -13,8 +13,8 @@
                 <span v-if="!isEmailValid && email !== ''" class="error-message">{{ getEmailErrorMessage() }}</span> <br>
 
                 <label for="telefono">Número de telefono:</label>
-                <input v-model="telefono" type="tel" placeholder="Ingrese su numero" id="telefono" name="telefono"
-                    required autocomplete="tel"><br>
+                <input v-model="telefono" type="tel" placeholder="Ingrese su numero" id="telefono" name="telefono" required
+                    autocomplete="tel"><br>
                 <span v-if="!isTelefonoValid && telefono !== ''" class="error-message">{{ getTelefonoErrorMessage()
                 }}</span> <br>
 
@@ -112,7 +112,9 @@ export default {
                         telefono: this.telefono,
                         username: this.username,
                         password: this.password,
+                        cursos: [],
                     };
+
                     existingUsers.push(newUser);
 
                     // Guardar la lista actualizada en el localStorage

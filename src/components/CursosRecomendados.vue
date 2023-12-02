@@ -18,6 +18,72 @@
 </template>
 
 
+<script setup lang="ts">
+import { ref } from 'vue';
+
+interface User {
+    username: string;
+    password: string;
+    cursos: string[];
+
+}
+
+const cursos = [
+    { id: 'Curso1', titulo: 'Curso de Desarrollo Web', descripcion: 'Aprende a crear sitios web profesionales' },
+    { id: 'Curso2', titulo: 'Curso de Marketing Digital', descripcion: 'Domina las estrategias de marketing en línea.' },
+    { id: 'Curso3', titulo: 'Curso de Desarrollo Python', descripcion: 'Aprende a programar en uno de los lenguajes más populares.' },
+    { id: 'Curso4', titulo: 'Curso de Diseño Gráfico', descripcion: 'Aprende a crear gráficos atractivos, logotipos, imágenes y materiales promocionales' },
+    { id: 'Curso5', titulo: 'Aplicaciones Móviles', descripcion: 'Aprenderás a usar tecnologías como React Native, Flutter o desarrollo nativo para iOS y Android.' },
+    { id: 'Curso6', titulo: 'Gestión de Proyectos', descripcion: 'Aprender a planificar, ejecutar y controlar proyectos de manera eficiente.' },
+];
+
+const filtro = ref('');
+const cursosFiltrados = ref(cursos);
+
+const filtrarCursos = () => {
+    const textoFiltro = filtro.value.toLowerCase();
+    cursosFiltrados.value = cursos.filter(curso => curso.titulo.toLowerCase().includes(textoFiltro));
+};
+
+const agregarCurso = (cursoId: string) => {
+    // Recuperar la lista de usuarios del Local Storage
+    const userListString = localStorage.getItem('userList');
+    const userList: User[] = userListString ? JSON.parse(userListString) : [];
+
+    // Recuperar el usuario del Local Storage
+    const currentUserString = localStorage.getItem('currentUser');
+    if (currentUserString) {
+        const currentUser = JSON.parse(currentUserString);
+
+        // Verificar si el curso ya está en la lista del usuario
+        if (!currentUser.cursos || !currentUser.cursos.includes(cursoId)) {
+            // Si no está, agregar el curso al array de cursos del usuario
+            currentUser.cursos = currentUser.cursos || [];
+            currentUser.cursos.push(cursoId);
+
+            // Actualizar el usuario en el Local Storage
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+            // También agregar el curso al array de cursos del usuario en la lista de usuarios
+            const userToUpdate = userList.find(user => user.username === currentUser.username);
+            if (userToUpdate) {
+                userToUpdate.cursos = currentUser.cursos;
+            }
+
+            // Actualizar la lista de usuarios en el Local Storage
+            localStorage.setItem('userList', JSON.stringify(userList));
+
+            alert(`${cursoId} agregado al perfil.`);
+        } else {
+            alert(`El ${cursoId} ya está en el perfil.`);
+
+        }
+
+    }
+};
+</script>
+  
+
 <style scoped>
 h1 {
     font-size: 3.5em;
@@ -74,7 +140,8 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 100%; /* Asegura que ocupa todo el ancho disponible */
+    width: 100%;
+    /* Asegura que ocupa todo el ancho disponible */
 }
 
 .cursos:first-child {
@@ -165,49 +232,6 @@ button a {
         box-sizing: border-box;
     }
 
-}</style>
-  
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const cursos = [
-    { id: 'Curso1', titulo: 'Curso de Desarrollo Web', descripcion: 'Aprende a crear sitios web profesionales' },
-    { id: 'Curso2', titulo: 'Curso de Marketing Digital', descripcion: 'Domina las estrategias de marketing en línea.' },
-    { id: 'Curso3', titulo: 'Curso de Desarrollo Python', descripcion: 'Aprende a programar en uno de los lenguajes más populares.' },
-    { id: 'Curso4', titulo: 'Curso de Diseño Gráfico', descripcion: 'Aprende a crear gráficos atractivos, logotipos, imágenes y materiales promocionales' },
-    { id: 'Curso5', titulo: 'Aplicaciones Móviles', descripcion: 'Aprenderás a usar tecnologías como React Native, Flutter o desarrollo nativo para iOS y Android.' },
-    { id: 'Curso6', titulo: 'Gestión de Proyectos', descripcion: 'Aprender a planificar, ejecutar y controlar proyectos de manera eficiente.' },
-];
-
-const filtro = ref('');
-const cursosFiltrados = ref(cursos);
-
-const filtrarCursos = () => {
-    const textoFiltro = filtro.value.toLowerCase();
-    cursosFiltrados.value = cursos.filter(curso => curso.titulo.toLowerCase().includes(textoFiltro));
-};
-const agregarCurso = (cursoId:String) => {
-  // Recuperar el usuario del Local Storage
-  const currentUserString = localStorage.getItem('currentUser');
-  if (currentUserString) {
-    const currentUser = JSON.parse(currentUserString);
-
-    // Verificar si el curso ya está en la lista del usuario
-    if (!currentUser.cursos || !currentUser.cursos.includes(cursoId)) {
-      // Si no está, agregar el curso al array de cursos del usuario
-      currentUser.cursos = currentUser.cursos || [];
-      currentUser.cursos.push(cursoId);
-
-      // Actualizar el usuario en el Local Storage
-      localStorage.setItem('currentUser', JSON.stringify(currentUser));
-
-      alert(`${cursoId} agregado al perfil.`);
-    } else {
-      alert(`El ${cursoId} ya está en el perfil.`);
-  
-    }
-    
-  }
-};
-</script>
+}
+</style>
   

@@ -16,8 +16,9 @@ p {font-size: 1.25em;}
 #introduccion .contenedor
 {
     display: flex;
+    flex-direction: column;
     text-align: center;
-    padding: 100px 12px;
+    padding: 10px 12px;
     justify-content: center;
     align-items: center;
 }
@@ -42,8 +43,9 @@ span{
             rgba(0, 0, 0, 0.3)), url(../assets/imagenes/desarrolloWeb.png);
             background-size: cover;
             background-position: center center;
-            height: 500px;
-            width: 400px;
+            width: 100%;
+            height: 350px;            
+            margin-bottom: 20px;
 }
 #introduccion .content-img2{
     background-image: linear-gradient(0deg,
@@ -89,4 +91,68 @@ span{
             background-position: center center;
             height: 450px;
             width: 600px;
+}
+
+@media screen and (min-width: 600px) {
+    /* Ajustes para pantallas más grandes */
+    #introduccion .contenedor {
+        flex-direction: row;
+ 
+    }
+
+    #introduccion .content-img1{
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.3)), url(../assets/imagenes/desarrolloWeb.png);
+                background-size: cover;
+                background-position: center center;
+                height: 480px;
+                width: 400px;        
+    }
+
+    #introduccion .content-img2{
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url(../assets/imagenes/marketing.jpg);
+                background-size: cover;
+                background-position: center center;
+                height: 480px;
+                width: 400px;
+    }
+    #introduccion .content-img3{
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url(../assets/imagenes/phyton.png);
+                background-size: cover;
+                background-position: center center;
+                height: 450px;
+                width: 600px;
+    }
+    #introduccion .content-img4{
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url(../assets/imagenes/diseñografico.jpg);
+                background-size: cover;
+                background-position: center center;
+                height: 450px;
+                width: 400px;
+    }
+    #introduccion .content-img5{
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url(../assets/imagenes/appweb.jpg);
+                background-size: cover;
+                background-position: center center;
+                height: 550px;
+                width: 400px;
+    }
+    #introduccion .content-img6{
+        background-image: linear-gradient(0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3)), url(../assets/imagenes/gestionproyectos.jpg);
+                background-size: cover;
+                background-position: center center;
+                height: 450px;
+                width: 600px;
+    }
 }
