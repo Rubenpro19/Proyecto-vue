@@ -55,38 +55,30 @@ export default {
         };
     },
     computed: {
-        // Propiedades calculadas que se actualizan automáticamente cuando cambian las dependencias
         isNameValid() {
-            // Expresión regular para validar el nombre y apellido
             const nameRegex = /^[a-zA-ZÀ-ÿ]+(\s[a-zA-ZÀ-ÿ]{4,}){1,15}$/;
             return nameRegex.test(this.name);
         },
         isEmailValid() {
-            // Expresión regular para validar el correo electrónico
             const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
             return emailRegex.test(this.email);
         },
         isTelefonoValid() {
-            // Expresión regular para validar el número de teléfono
             const telefonoRegex = /^\d{10}$/;
             return telefonoRegex.test(this.telefono);
         },
         isUsernameValid() {
-            // Expresión regular para validar el nombre de usuario
             const usernameRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9_]{8,20}$/;
             return usernameRegex.test(this.username);
         },
         isPasswordValid() {
-            // Expresión regular para validar la contraseña
             const passwordRegex = /^.{8,}$/;
             return passwordRegex.test(this.password);
         },
         isPassword2Valid() {
-            // Validar si la contraseña 2 es igual a la contraseña 1
             return this.password2 === this.password;
         },
         isFormValid() {
-            // Propiedad calculada que verifica si tanto el nombre de usuario como la contraseña son válidos
             return this.isUsernameValid && this.isPasswordValid;
         },
     },
@@ -99,13 +91,19 @@ export default {
                 const existingUsers = existingUsersString ? JSON.parse(existingUsersString) : [];
 
                 // Verificar si el nombre de usuario ya existe en la lista
-                const userExists = existingUsers.some((user: { username: string }) => user.username === this.username);
 
-                if (userExists) {
-                    // Mostrar un mensaje de error si el nombre de usuario ya existe
+                const emailExists = existingUsers.some((user: { email: string }) => user.email === this.email);
+                const userExists = existingUsers.some((user: { username: string }) => user.username === this.username);
+                const telefonoExists = existingUsers.some((user: { telefono: string }) => user.telefono === this.telefono);
+
+                if (emailExists)
+                    alert('El correo ya esta asociado a otra cuenta. Por favor use un correo diferente.')
+                else if (telefonoExists) {
+                    alert('El telefono ya esta asociado a otra cuenta')
+                }
+                else if (userExists) {
                     alert('El nombre de usuario ya existe. Por favor, elija otro.');
                 } else {
-                    // Agregar el nuevo usuario a la lista
                     const newUser = {
                         name: this.name,
                         email: this.email,
@@ -120,53 +118,52 @@ export default {
 
                     localStorage.setItem('currentUser', JSON.stringify(newUser));
 
-                    // Muestra un mensaje y redirige a otra página
                     console.log('Formulario válido. Iniciando sesión...');
                     this.$router.push('/CursosRecomendados');
                 }
             }
         },
-        // Método para obtener mensajes de error del nombre
+
         getNameErrorMessage() {
             if (!this.isNameValid) {
-                return 'El nombre debe tener de 5 a 40 dígitos y solo puede contener letras (incluyendo acentos y espacios)';
+                return 'El nombre y apellido deben contener solo letras y permiten espacios. Asegúrese de ingresar al menos un nombre y un apellido, y de que cada palabra tenga al menos 4 caracteres.';
             }
-            return '';  // Retorna una cadena vacía si el nombre es válido
+            return '';
         },
-        // Método para obtener mensajes de error del correo electrónico
+
         getEmailErrorMessage() {
             if (!this.isEmailValid) {
                 return 'No es un correo válido';
             }
-            return '';  // Retorna una cadena vacía si el correo electrónico es válido
+            return '';
         },
-        // Método para obtener mensajes de error del número de teléfono
+
         getTelefonoErrorMessage() {
             if (!this.isTelefonoValid) {
                 return 'El teléfono solo puede contener números y debe tener 10 dígitos';
             }
-            return '';  // Retorna una cadena vacía si el número de teléfono es válido
+            return '';
         },
-        // Método para obtener mensajes de error del nombre de usuario
+
         getUsernameErrorMessage() {
             if (!this.isUsernameValid) {
                 return 'El nombre de usuario debe tener al menos 8 dígitos y contener al menos una letra mayúscula, una letra minúscula y un número.';
             }
             return '';  // Retorna una cadena vacía si el nombre de usuario es válido
         },
-        // Método para obtener mensajes de error de la contraseña
+
         getPasswordErrorMessage() {
             if (!this.isPasswordValid) {
                 return 'La contraseña debe tener al menos 8 caracteres.';
             }
-            return '';  // Retorna una cadena vacía si la contraseña es válida
+            return '';
         },
-        // Método para obtener mensajes de error de la repetición de la contraseña
+
         getPassword2ErrorMessage() {
             if (!this.isPassword2Valid) {
                 return 'La contraseña debe ser igual.';
             }
-            return '';  // Retorna una cadena vacía si la repetición de la contraseña es válida
+            return '';
         }
     },
 };
