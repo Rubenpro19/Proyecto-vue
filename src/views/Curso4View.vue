@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import '/src/assets/cursos.css'
+import '../assets/cursos.css'
 </script>
 
 <template>
