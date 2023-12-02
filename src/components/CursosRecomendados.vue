@@ -201,9 +201,9 @@ const agregarCurso = (cursoId:String) => {
       // Actualizar el usuario en el Local Storage
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
-      alert(`Curso ${cursoId} agregado al perfil.`);
+      alert(`${cursoId} agregado al perfil.`);
     } else {
-      alert(`El curso ${cursoId} ya está en el perfil.`);
+      alert(`El ${cursoId} ya está en el perfil.`);
   
     }
     

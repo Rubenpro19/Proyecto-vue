@@ -11,10 +11,15 @@
 
       <div class="cursos-asociados">
         <h2>Cursos Asociados</h2>
-        <ul>
-          <li v-for="cursoId in currentUser.cursos" :key="cursoId">
-            <a href=""> {{ obtenerTituloCurso(cursoId) }}</a>
-          </li>
+        <ul class="cursos-lista">
+          <router-link
+            v-for="cursoId in currentUser.cursos"
+            :to="{ name: cursoId }"
+            :key="cursoId"
+            class="curso-item"
+          >
+            {{ obtenerTituloCurso(cursoId) }}
+          </router-link>
         </ul>
       </div>
 
@@ -181,6 +186,9 @@ h1 {
   font-size: 4em;
 }
 
+h2{
+  font-size: 2em;
+}
 p {
   font-size: 1.8em;
 }
@@ -266,7 +274,29 @@ p {
   background-color: rgb(80, 11, 145);
 }
 
+.cursos-asociados {
+  margin-top: 20px;
+}
 
+.cursos-lista {
+  list-style-type: none;
+  padding: 0;
+}
+
+.curso-item {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.curso-item:hover {
+  background-color: #f0f0f0;
+}
 
 @media (max-width: 600px) {
   h1 {

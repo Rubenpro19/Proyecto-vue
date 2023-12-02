@@ -22,4 +22,4 @@ import '../assets/cursos.css'
 </template>
   
 
-<style></style>
+<style scoped></style>
