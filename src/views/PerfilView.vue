@@ -28,7 +28,6 @@
           <input type="email" id="correo" name="correo" v-model="editedEmail">
 
           <label for="telefono">Telefono:</label>
-          <label for="telefono">Telefono:</label>
           <input type="text" id="telefono" name="telefono" v-model="editedTelefono" pattern="[0-9]+" autocomplete="tel">
 
           <label for="imagen">Imagen de Perfil:</label>

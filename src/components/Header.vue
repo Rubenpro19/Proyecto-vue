@@ -15,18 +15,8 @@
   </header>
 </template>
 
-<script setup lang="ts">
-const logout = () => {
-  localStorage.removeItem('currentUser');
-};
-</script>
-
 
 <style scoped>
-h1 {
-    font-size: 4.5em;
-}
-
 p {
     font-size: 1.80em;
 }
@@ -44,12 +34,10 @@ header .contenedor {
 header .logo {
     margin: 0;
     padding: 20px 30px;
-    font-weight: bold;
-    color: blueviolet;
     font-size: 1.6em;
 }
 
-header nav {
+header nav{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -71,7 +59,7 @@ header p a{
     color: blueviolet;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 820px) {
     header {
         width: 100%;
     }
@@ -88,7 +76,6 @@ header p a{
     }
 }
 
-
 @media (max-width: 600px) {
     p {
         font-size: 1.5em;
@@ -104,3 +91,11 @@ header p a{
     }
 }
 </style>
+
+
+<script setup lang="ts">
+const logout = () => {
+  localStorage.removeItem('currentUser');
+};
+</script>
+
