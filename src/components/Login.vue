@@ -6,16 +6,21 @@
         <label for="username">Usuario:</label>
         <input v-model="username" type="text" placeholder="Ingrese su usuario" id="username" name="username" required
           @input="handleUsernameInput"
-          :class="{ 'error': (!isUsernameValid && username !== '') || showUsernameNotFoundError || !isUsernameFilled, 'success': isUsernameValid }">
+          :class="{ 'error': (!isUsernameValid && username !== '') || showUsernameNotFoundError || !isUsernameFilled, 'success': isUsernameValid }"
+          autocomplete="username">
         <span v-if="(!isUsernameValid && username !== '') || showUsernameNotFoundError || !isUsernameFilled"
           class="error-message">{{ getUsernameErrorMessage() }}</span>
+
         <br>
+
         <label for="password">Contraseña</label>
         <input v-model="password" type="password" placeholder="Ingrese su contraseña" id="password" name="password"
           required @input="handlePasswordInput"
-          :class="{ 'error': !isPasswordValid && password !== '' || showPasswordMismatchError || !isPasswordFilled, 'success': isPasswordValid }">
+          :class="{ 'error': !isPasswordValid && password !== '' || showPasswordMismatchError || !isPasswordFilled, 'success': isPasswordValid }"
+          autocomplete="current-password">
         <span v-if="!isPasswordValid && password !== '' || showPasswordMismatchError || !isPasswordFilled"
           class="error-message">{{ getPasswordErrorMessage() }}</span>
+
         <div id="registro">
           <RouterLink to="/registro">¿No tienes una cuenta? Regístrate</RouterLink>
         </div>
@@ -226,6 +231,4 @@ p {
   color: #ff0004;
   font-size: 0.9em;
 }
-
-
 </style>

@@ -12,12 +12,7 @@
       <div class="cursos-asociados">
         <h2>Cursos Asociados</h2>
         <ul class="cursos-lista">
-          <router-link
-            v-for="cursoId in currentUser.cursos"
-            :to="{ name: cursoId }"
-            :key="cursoId"
-            class="curso-item"
-          >
+          <router-link v-for="cursoId in currentUser.cursos" :to="{ name: cursoId }" :key="cursoId" class="curso-item">
             {{ obtenerTituloCurso(cursoId) }}
           </router-link>
         </ul>
@@ -33,7 +28,8 @@
           <input type="email" id="correo" name="correo" v-model="editedEmail">
 
           <label for="telefono">Telefono:</label>
-          <input type="text" id="telefono" name="telefono" v-model="editedTelefono" pattern="[0-9]+">
+          <label for="telefono">Telefono:</label>
+          <input type="text" id="telefono" name="telefono" v-model="editedTelefono" pattern="[0-9]+" autocomplete="tel">
 
           <label for="imagen">Imagen de Perfil:</label>
           <input type="file" id="imagen" name="imagen" accept="image/*" @change="handleImageChange">
@@ -41,13 +37,13 @@
 
           <h3>Cambiar Contraseña</h3>
           <label for="contrasena-actual">Contraseña Actual:</label>
-          <input type="password" id="contrasena-actual" name="contrasena-actual">
+          <input type="password" id="contrasena-actual" name="contrasena-actual" autocomplete="current-password">
 
           <label for="contrasena-nueva">Contraseña Nueva:</label>
-          <input type="password" id="contrasena-nueva" name="contrasena-nueva">
+          <input type="password" id="contrasena-nueva" name="contrasena-nueva" autocomplete="new-password">
 
           <label for="confirmar-contrasena">Confirmar Contraseña:</label>
-          <input type="password" id="confirmar-contrasena" name="confirmar-contrasena">
+          <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" autocomplete="new-password">
 
           <input type="submit" value="Guardar Cambios">
         </form>
@@ -70,12 +66,12 @@ interface User {
 }
 
 const cursos = [
-    { id: 'Curso1', titulo: 'Curso de Desarrollo Web', descripcion: 'Aprende a crear sitios web profesionales' },
-    { id: 'Curso2', titulo: 'Curso de Marketing Digital', descripcion: 'Domina las estrategias de marketing en línea.' },
-    { id: 'Curso3', titulo: 'Curso de Desarrollo Python', descripcion: 'Aprende a programar en uno de los lenguajes más populares.' },
-    { id: 'Curso4', titulo: 'Curso de Diseño Gráfico', descripcion: 'Aprende a crear gráficos atractivos, logotipos, imágenes y materiales promocionales' },
-    { id: 'Curso5', titulo: 'Aplicaciones Móviles', descripcion: 'Aprenderás a usar tecnologías como React Native, Flutter o desarrollo nativo para iOS y Android.' },
-    { id: 'Curso6', titulo: 'Gestión de Proyectos', descripcion: 'Aprender a planificar, ejecutar y controlar proyectos de manera eficiente.' },
+  { id: 'Curso1', titulo: 'Curso de Desarrollo Web', descripcion: 'Aprende a crear sitios web profesionales' },
+  { id: 'Curso2', titulo: 'Curso de Marketing Digital', descripcion: 'Domina las estrategias de marketing en línea.' },
+  { id: 'Curso3', titulo: 'Curso de Desarrollo Python', descripcion: 'Aprende a programar en uno de los lenguajes más populares.' },
+  { id: 'Curso4', titulo: 'Curso de Diseño Gráfico', descripcion: 'Aprende a crear gráficos atractivos, logotipos, imágenes y materiales promocionales' },
+  { id: 'Curso5', titulo: 'Aplicaciones Móviles', descripcion: 'Aprenderás a usar tecnologías como React Native, Flutter o desarrollo nativo para iOS y Android.' },
+  { id: 'Curso6', titulo: 'Gestión de Proyectos', descripcion: 'Aprender a planificar, ejecutar y controlar proyectos de manera eficiente.' },
 ];
 
 export default defineComponent({
@@ -165,7 +161,7 @@ export default defineComponent({
       const curso = cursos.find((c) => c.id === cursoId);
       return curso ? curso.titulo : 'Curso no encontrado';
     },
-    
+
   },
 });
 </script>
@@ -187,9 +183,10 @@ h1 {
   font-size: 4em;
 }
 
-h2{
+h2 {
   font-size: 2em;
 }
+
 p {
   font-size: 1.8em;
 }

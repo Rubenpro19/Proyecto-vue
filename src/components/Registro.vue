@@ -14,7 +14,7 @@
 
                 <label for="telefono">Número de telefono:</label>
                 <input v-model="telefono" type="tel" placeholder="Ingrese su numero" id="telefono" name="telefono"
-                    required><br>
+                    required autocomplete="tel"><br>
                 <span v-if="!isTelefonoValid && telefono !== ''" class="error-message">{{ getTelefonoErrorMessage()
                 }}</span> <br>
 
@@ -26,13 +26,15 @@
 
                 <label for="password">Contraseña:</label>
                 <input v-model="password" type="password" placeholder="Ingrese su contraseña" id="password" name="password"
-                    required><br>
+                    required autocomplete="new-password"><br>
                 <span v-if="!isPasswordValid && password !== ''" class="error-message">{{ getPasswordErrorMessage()
-                }}</span> <br>
+                }}</span>
+
+                <br>
 
                 <label for="password2">Repita la Contraseña:</label>
                 <input v-model="password2" type="password" placeholder="Repita su contraseña" id="password2"
-                    name="password2" required><br>
+                    name="password2" required autocomplete="new-password"><br>
                 <span v-if="!isPassword2Valid && password2 !== ''" class="error-message">{{ getPassword2ErrorMessage()
                 }}</span> <br>
 
