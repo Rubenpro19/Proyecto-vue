@@ -165,6 +165,7 @@ export default defineComponent({
       const curso = cursos.find((c) => c.id === cursoId);
       return curso ? curso.titulo : 'Curso no encontrado';
     },
+    
   },
 });
 </script>

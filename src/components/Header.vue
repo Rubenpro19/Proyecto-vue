@@ -1,34 +1,26 @@
 <template>
-    <header>
-        <div class="contenedor">
-            <p class="logo"><a href="/">AprendeYa!</a></p>
-            <nav>
-                <router-link v-if="$route.path === '/' || $route.path === '/registro'" to="/login">Iniciar
-                    Sesión</router-link>
-                <router-link v-if="$route.path === '/'" to="/login">Cursos Recomendados</router-link>
-
-                <router-link v-if="$route.path === '/login' || $route.path === '/registro'" to="/">Regresar</router-link>
-
-                <router-link v-if="$route.path ==='/CursosRecomendados'" to="/CursosRecomendados/Perfil">Ver Perfil</router-link>
-                <router-link v-if="$route.path ==='/CursosRecomendados/Perfil'" to="/CursosRecomendados">Regresar</router-link>
-
-                <router-link v-if="$route.path === '/CursosRecomendados'" to="/">Cerrar Sesión</router-link>
-                
-                <router-link v-if="$route.path === '/CursosRecomendados/Curso1'" to="/CursosRecomendados">Regresar</router-link>
-                <router-link v-if="$route.path === '/CursosRecomendados/Curso2'" to="/CursosRecomendados">Regresar</router-link>
-                <router-link v-if="$route.path === '/CursosRecomendados/Curso3'" to="/CursosRecomendados">Regresar</router-link>
-                <router-link v-if="$route.path === '/CursosRecomendados/Curso4'" to="/CursosRecomendados">Regresar</router-link>
-                <router-link v-if="$route.path === '/CursosRecomendados/Curso5'" to="/CursosRecomendados">Regresar</router-link>
-                <router-link v-if="$route.path === '/CursosRecomendados/Curso6'" to="/CursosRecomendados">Regresar</router-link>
-                
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="contenedor">
+      <p class="logo"><router-link to="/">AprendeYa!</router-link></p>
+      <nav>
+        <router-link v-if="$route.path === '/' || $route.path === '/registro'" to="/login">Iniciar Sesión</router-link>
+        <router-link v-if="$route.path === '/'" to="/login">Cursos Recomendados</router-link>
+        <router-link v-if="$route.path === '/login' || $route.path === '/registro'" to="/">Regresar</router-link>
+        <router-link v-if="$route.path ==='/CursosRecomendados'" to="/CursosRecomendados/Perfil">Ver Perfil</router-link>
+        <router-link v-if="$route.path ==='/CursosRecomendados/Perfil'" to="/CursosRecomendados">Regresar</router-link>
+        <router-link v-if="$route.path === '/CursosRecomendados'" @click="logout" to="/">Cerrar Sesión</router-link>
+        <router-link v-if="$route.path.startsWith('/CursosRecomendados/Curso')" to="/CursosRecomendados">Regresar</router-link>
+      </nav>
+    </div>
+  </header>
 </template>
 
 <script setup lang="ts">
-
+const logout = () => {
+  localStorage.removeItem('currentUser');
+};
 </script>
+
 
 <style scoped>
 h1 {
