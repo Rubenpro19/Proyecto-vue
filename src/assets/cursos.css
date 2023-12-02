@@ -39,7 +39,7 @@ span{
 
 #introduccion .content-img1{
     background-image: linear-gradient(0deg,
-            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.3),
             rgba(0, 0, 0, 0.3)), url(../assets/imagenes/desarrolloWeb.png);
             background-size: cover;
             background-position: center center;
@@ -53,8 +53,9 @@ span{
             rgba(0, 0, 0, 0.3)), url(../assets/imagenes/marketing.jpg);
             background-size: cover;
             background-position: center center;
-            height: 480px;
-            width: 400px;
+            width: 100%;
+            height: 350px;            
+            margin-bottom: 20px;
 }
 #introduccion .content-img3{
     background-image: linear-gradient(0deg,
@@ -62,8 +63,9 @@ span{
             rgba(0, 0, 0, 0.3)), url(../assets/imagenes/phyton.png);
             background-size: cover;
             background-position: center center;
-            height: 450px;
-            width: 600px;
+            width: 100%;
+            height: 350px;            
+            margin-bottom: 20px;
 }
 #introduccion .content-img4{
     background-image: linear-gradient(0deg,
@@ -71,8 +73,9 @@ span{
             rgba(0, 0, 0, 0.3)), url(../assets/imagenes/diseñografico.jpg);
             background-size: cover;
             background-position: center center;
-            height: 450px;
-            width: 400px;
+            width: 100%;
+            height: 350px;            
+            margin-bottom: 20px;
 }
 #introduccion .content-img5{
     background-image: linear-gradient(0deg,
@@ -80,8 +83,9 @@ span{
             rgba(0, 0, 0, 0.3)), url(../assets/imagenes/appweb.jpg);
             background-size: cover;
             background-position: center center;
-            height: 550px;
-            width: 400px;
+            width: 100%;
+            height: 350px;            
+            margin-bottom: 20px;
 }
 #introduccion .content-img6{
     background-image: linear-gradient(0deg,
@@ -89,8 +93,9 @@ span{
             rgba(0, 0, 0, 0.3)), url(../assets/imagenes/gestionproyectos.jpg);
             background-size: cover;
             background-position: center center;
-            height: 450px;
-            width: 600px;
+            width: 100%;
+            height: 350px;            
+            margin-bottom: 20px;
 }
 
 @media screen and (min-width: 600px) {
